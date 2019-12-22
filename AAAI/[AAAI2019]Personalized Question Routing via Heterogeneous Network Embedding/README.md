@@ -18,9 +18,9 @@
 
 ## **Model**
 
-![image-20191221113113119](C:\Users\89383\AppData\Roaming\Typora\typora-user-images\image-20191221113113119.png)
+![image-20191221113113119](https://github.com/linzihan-backforward/PaperNotes/blob/master/AAAI/%5BAAAI2019%5DPersonalized%20Question%20Routing%20via%20Heterogeneous%20Network%20Embedding/image-20191221113113119.png?raw=true)
 
-​	整个模型可以分为两个部分：Embedding和Scoring 。Embedding部分学习到R、A、Q中每一个entity的低维embedding，Scoring部分利用询问（r，q）的embedding遍历整个A集合，用CNN作为打分函数F，得到三元组的分值![image-20191221114004315](C:\Users\89383\AppData\Roaming\Typora\typora-user-images\image-20191221114004315.png)	下面分别解析这两个部分。
+​	整个模型可以分为两个部分：Embedding和Scoring 。Embedding部分学习到R、A、Q中每一个entity的低维embedding，Scoring部分利用询问（r，q）的embedding遍历整个A集合，用CNN作为打分函数F，得到三元组的分值![image-20191221114004315](https://github.com/linzihan-backforward/PaperNotes/blob/master/AAAI/%5BAAAI2019%5DPersonalized%20Question%20Routing%20via%20Heterogeneous%20Network%20Embedding/image-20191221114004315.png?raw=true)	下面分别解析这两个部分。
 
 ### Embedding
 
@@ -28,7 +28,7 @@
 
 ​	针对R、A的表示，使用的基本上也是现成的Graph embedding方法：metapath2vec，这个方法的详细内容可以查看KDD2017上的原始论文，主要就是在图上预先定义一个metapath（此文中推荐使用“A-Q-R-Q-A”和“A-Q-A”），再严格按照此顺序进行random walk，将得到的序列使用Skip-gram的方法训练得到，除了使用LSTM得到Q节点的embedding而非Skip-gram学到，以及目标函数定义为best-answerer和answerer之差加上正负样本之差之外（公式见下图），整个结构和训练过程与原始的metapath2vec一致。
 
-![image-20191221120119292](C:\Users\89383\AppData\Roaming\Typora\typora-user-images\image-20191221120119292.png)
+![image-20191221120119292](https://github.com/linzihan-backforward/PaperNotes/blob/master/AAAI/%5BAAAI2019%5DPersonalized%20Question%20Routing%20via%20Heterogeneous%20Network%20Embedding/image-20191221120119292.png?raw=true)
 
 ### Scoring		
 
@@ -50,7 +50,7 @@ L2R：将用户-问题之间的交叉特征送入SVM中来进行排序
 
 ### 指标结果
 
-![image-20191221144423433](C:\Users\89383\AppData\Roaming\Typora\typora-user-images\image-20191221144423433.png)
+![image-20191221144423433](https://github.com/linzihan-backforward/PaperNotes/blob/master/AAAI/%5BAAAI2019%5DPersonalized%20Question%20Routing%20via%20Heterogeneous%20Network%20Embedding/image-20191221144423433.png?raw=true)
 
 ------
 
