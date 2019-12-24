@@ -73,3 +73,9 @@
 ### result
 
   ![image-20191224145244317](https://github.com/linzihan-backforward/PaperNotes/blob/master/WWW/%5BWWW2019%5D%20Graph%20Neural%20Networks%20for%20Social%20Recommendation/image-20191224145244317.png?raw=true)
+
+## 个人见解
+
+​	
+
+​	这篇文章的所突出的最主要的创新点便是同时使用上两个图的信息和打分信息，但是整篇看完感觉跟读完Introduction之后心里的预期有那么一点点差距，虽然使用了两个图的数据，但是完全把他们分别计算的，并没有使用共同的用户节点作为桥梁把两个图合并起来共同处理，在GNN上创新点有点不足，模型设计上也都是MLP+Attention的当时，各类需要信息交互的地方都是直接concatenation，只能说最后效果上不错，但是读完没啥被启发的地方。还有一点，看完其代码实现后感觉跟论文中的模型细节上有一些区别，而且整个模块结构也比较混乱，模型图上明显的三个模块代码中全搅在了一起，注释也不清晰，看起来有点吃力，之后实现模型上可以吸取其经验。
