@@ -12,19 +12,19 @@
 
 ​	在每一层的卷积中，包含三个部分：特征传播，线性转换，非线性激活。特征传播即对于每一个节点将其直接相连的邻居的特征聚合起来与本节点上一层的特征相连或相加，线性转换通常是使用一个全连接的神经网络来对聚合得到的特征进行映射，非线性激活则对应全连接网络最后的非线性激活函数（ReLU），整个的GCN过程如下图所示。
 
-![image-20200106101809943](C:\Users\89383\AppData\Roaming\Typora\typora-user-images\image-20200106101809943.png)
+![image-20200106101809943](https://github.com/linzihan-backforward/PaperNotes/blob/master/ICML/%5BICML2019%5D%20Simplifying%20Graph%20Convolutional%20Networks/image-20200106101809943.png?raw=true)
 
-​	其中每一层的运算都使用了整个图的矩阵来直接进行矩阵运算，特征聚合的运算矩阵S可以由图的邻接矩阵和度对角矩阵得到。![image-20200106101931385](C:\Users\89383\AppData\Roaming\Typora\typora-user-images\image-20200106101931385.png)
+​	其中每一层的运算都使用了整个图的矩阵来直接进行矩阵运算，特征聚合的运算矩阵S可以由图的邻接矩阵和度对角矩阵得到。![image-20200106101931385](https://github.com/linzihan-backforward/PaperNotes/blob/master/ICML/%5BICML2019%5D%20Simplifying%20Graph%20Convolutional%20Networks/image-20200106101931385.png?raw=true)
 
 ### Simple Graph Convolution
 
 ​	模型基于一个很简单的假设，即非线性激活运算在模型中的作用不大，主要起作用的操作是特征传播运算，所以我们直接在每一层的卷积中去掉最后的ReLU运算，则我们的整个模型完全变成了一个线性的模型。
 
-![image-20200106102900241](C:\Users\89383\AppData\Roaming\Typora\typora-user-images\image-20200106102900241.png)
+![image-20200106102900241](https://github.com/linzihan-backforward/PaperNotes/blob/master/ICML/%5BICML2019%5D%20Simplifying%20Graph%20Convolutional%20Networks/image-20200106102900241.png?raw=true)
 
 ​	显然，其中的连续的矩阵相乘项可以表示为一个矩阵。
 
-![image-20200106102955060](C:\Users\89383\AppData\Roaming\Typora\typora-user-images\image-20200106102955060.png)
+![image-20200106102955060](https://github.com/linzihan-backforward/PaperNotes/blob/master/ICML/%5BICML2019%5D%20Simplifying%20Graph%20Convolutional%20Networks/image-20200106102955060.png?raw=true)
 
 ​	这样我们的模型由k层压缩为了一层，S矩阵非模型参数，所以相当于使用图的邻接矩阵进行特征预处理之后再进行一个线性映射便得到了模型输出，这样的话整个模型的速度便得到了极大的提高，在下面的分析和实验中，将展示这种方法与非线性的方法相比的效果。
 
@@ -44,7 +44,7 @@
 
 ### Results
 
-![image-20200106121453997](C:\Users\89383\AppData\Roaming\Typora\typora-user-images\image-20200106121453997.png)
+![image-20200106121453997](https://github.com/linzihan-backforward/PaperNotes/blob/master/ICML/%5BICML2019%5D%20Simplifying%20Graph%20Convolutional%20Networks/image-20200106121453997.png?raw=true)
 
 ​	本文的实验部分非常充分，除了之间的节点分类实验之外，还测试了5个不同具体下游任务，其结果可以去原文中查看。
 
