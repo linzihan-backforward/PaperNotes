@@ -19,15 +19,15 @@
 
 使用这5个实体和6种关系，我们就能够得到一个异质的网络图。
 
-![image-20200205102039759](https://github.com/linzihan-backforward/PaperNotes/blob/master/SIGIR/%5BSIGIR2018%5D%20Learning%20over%20Knowledge-Base%20Embeddings%20for%20Recommendation/image-20200205102039759.png?raw=true)
+![image-20200205102039759](C:\Users\89383\AppData\Roaming\Typora\typora-user-images\image-20200205102039759.png)
 
 ​	有了这样一个类似知识图谱的网络图之后，我们使用类似TransE的方法将其中的实体和关系统一嵌入到向量空间中。TransE的基本思想是让尾向量与头向量加关系向量接近，在这里我们将这种转换关系表示为trans（）函数，衡量转换后向量距离的函数成为d，则对于所有随机初始化的实体向量和关系向量来说，需要最小化以下的目标函数。
 
-![image-20200205102800630](https://github.com/linzihan-backforward/PaperNotes/blob/master/SIGIR/%5BSIGIR2018%5D%20Learning%20over%20Knowledge-Base%20Embeddings%20for%20Recommendation/image-20200205102800630.png?raw=true)
+![image-20200205102800630](C:\Users\89383\AppData\Roaming\Typora\typora-user-images\image-20200205102800630.png)
 
-​	其中St和Sh分别表示将头和尾进行随机替换后形成的负样本，使用hinge loss来定义损失。在实现中，d函数采用L2距离，而trans函数采用向量相加的形式，即![image-20200205102915328](https://github.com/linzihan-backforward/PaperNotes/blob/master/SIGIR/%5BSIGIR2018%5D%20Learning%20over%20Knowledge-Base%20Embeddings%20for%20Recommendation/image-20200205102915328.png?raw=true)
+​	其中St和Sh分别表示将头和尾进行随机替换后形成的负样本，使用hinge loss来定义损失。在实现中，d函数采用L2距离，而trans函数采用向量相加的形式，即![image-20200205102915328](C:\Users\89383\AppData\Roaming\Typora\typora-user-images\image-20200205102915328.png)
 
-​	在模型训练完成之后，对于一个目标用户产生推荐就可以使用统一的向量，对于所有的商品，采用距离![image-20200205103205196](https://github.com/linzihan-backforward/PaperNotes/blob/master/SIGIR/%5BSIGIR2018%5D%20Learning%20over%20Knowledge-Base%20Embeddings%20for%20Recommendation/image-20200205103205196.png?raw=true)来作为得分进行排序实现推荐。
+​	在模型训练完成之后，对于一个目标用户产生推荐就可以使用统一的向量，对于所有的商品，采用距离![image-20200205103205196](C:\Users\89383\AppData\Roaming\Typora\typora-user-images\image-20200205103205196.png)来作为得分进行排序实现推荐。
 
 ## Experiments
 
@@ -46,7 +46,7 @@
 
 ### Results
 
-![image-20200205105027383](https://github.com/linzihan-backforward/PaperNotes/blob/master/SIGIR/%5BSIGIR2018%5D%20Learning%20over%20Knowledge-Base%20Embeddings%20for%20Recommendation/image-20200205105027383.png?raw=true)
+![image-20200205105027383](C:\Users\89383\AppData\Roaming\Typora\typora-user-images\image-20200205105027383.png)
 
 ## 个人见解
 
